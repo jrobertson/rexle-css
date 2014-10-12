@@ -9,7 +9,7 @@ class RexleCSS
   def initialize(selector)
     @to_xpath = selector.prepend('//')\
         .gsub(/#(\w+)/,'div[@id="\1"]')\
-        .gsub(/ /,'//').gsub(/>/,'/')
+        .gsub(/ /,'//')
   end
 
 end
