@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+# file: rexle-css.rb
+
+class RexleCSS
+
+  attr_reader :to_xpath
+
+  def initialize(selector)
+    @to_xpath = selector.prepend('//')\
+        .gsub(/#(\w+)/,'div[@id="\1"]')\
+        .gsub(/ /,'//')
+  end
+
+end
