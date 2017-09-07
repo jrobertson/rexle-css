@@ -2,6 +2,9 @@
 
 # file: rexle-css.rb
 
+# view test data at 
+#       http://rorbuilder.info/r/gemtest/rexle-css/testdata_rexle-css.rdx
+
 class RexleCSS
 
   attr_reader :to_xpath
@@ -13,7 +16,8 @@ class RexleCSS
             .gsub(/#(\w+)/,'.[@id="\1"]')\
             .gsub(/\.(\w+)/,'[@class="\1"]')\
             .gsub(/ /,'//').gsub(/>/,'/')\
-            .gsub(/^\*$/,'.')
+            .gsub(/^\*$/,'.')\
+            .gsub(/(\w+):first-child/,'\1[1]') 
 
     @to_xpath = '//' + selector    
   end
