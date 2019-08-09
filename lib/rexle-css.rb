@@ -3,7 +3,7 @@
 # file: rexle-css.rb
 
 # view test data at 
-#       http://rorbuilder.info/r/gemtest/rexle-css/testdata_rexle-css.rdx
+#       http://a0.jamesrobertson.eu/rorb/r/gemtest/rexle-css/testdata_rexle-css.rdx
 
 class RexleCSS
 
@@ -17,7 +17,9 @@ class RexleCSS
             .gsub(/\.(\w+)/,'[@class="\1"]')\
             .gsub(/ /,'//').gsub(/>/,'/')\
             .gsub(/^\*$/,'.')\
-            .gsub(/(\w+):first-child/,'\1[1]') 
+            .gsub(/(\w+):first-child/,'\1[1]')\
+            .gsub(/\[(?<=)(\w+=)(\w+)/,'[@\1"\2"')
+
 
     @to_xpath = '//' + selector    
   end
